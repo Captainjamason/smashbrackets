@@ -12,7 +12,12 @@ class User {
 	}
 
 	function create() {
-		$query = "INSERT INTO " . $this->table_name . " SET uname = :uname, pass = :pass, money = :money";
+		$query = "INSERT INTO " . $this->table_name . "
+		        SET 
+			    uname = :uname, 
+			    pass = :pass, 
+			    money = :money";
+
 		$stmt = $this->conn->prepare($query);
 
 		$this->uname=htmlspecialchars(strip_tags($this->uname));
@@ -26,9 +31,8 @@ class User {
 
 		if($stmt->execute()) {
 			return true;
-		} else {
-			return false;
-		}
+		} 
+		return false;
 	}
 }
 ?>

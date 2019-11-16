@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost/api");
+header("Access-Control-Allow-Origin: http://localhost/api/");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
@@ -17,7 +17,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $user->uname = $data->uname;
 $user->pass = $data->pass;
-$user->money = "500";
+$user->money = $data->money;
 
 if(
 	!empty($user->uname) &&
